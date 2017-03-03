@@ -10,7 +10,7 @@
 //
 // }); /* document ready */
 $(document).ready(function(){
-
+console.log($);
   $('.target').click(function(){
     $(this).hide();
 
