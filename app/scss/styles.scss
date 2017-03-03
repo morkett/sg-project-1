@@ -1,0 +1,33 @@
+@import "resets";
+@import "config";
+@import "mixins";
+
+body {
+  // display: flex;
+  // height: 100vh;
+  // width: 100vw;
+  
+}
+
+div {
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  position: fixed;
+  // animation: test 1s linear alternate infinite;
+  // cursor: crosshair;
+}
+
+.animation-stop {
+  animation-play-state: paused;
+}
+
+@keyframes test {
+  from {left: 0;}
+  to {left: 90%}
+}
+
+// STYLES GO HERE //
+
+
+@import "js";
