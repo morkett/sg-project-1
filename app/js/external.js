@@ -11,8 +11,12 @@
 // }); /* document ready */
 $(document).ready(function(){
 
-  $('div').click(function(){
+  $('.target').click(function(){
     $(this).hide();
+
+    setTimeout(function () {
+      $('.target').show();
+    }, 1000);
   });
 
   animateDiv();
@@ -21,8 +25,8 @@ $(document).ready(function(){
   function makeNewPosition(){
 
     // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 50;
-    var w = $(window).width() - 50;
+    var h = $(window).height() - 200;
+    var w = $(window).width() - 200;
 
     var nh = Math.floor(Math.random() * h);
     var nw = Math.floor(Math.random() * w);
@@ -33,12 +37,14 @@ $(document).ready(function(){
 
   function animateDiv(){
     var newq = makeNewPosition();
-    var oldq = $('.a').offset();
+    var oldq = $('.target').offset();
     var speed = calcSpeed([oldq.top, oldq.left], newq);
 
-    $('.a').animate({ top: newq[0], left: newq[1] }, speed, function(){
+    $('.target').animate({ top: newq[0], left: newq[1] }, speed, function(){
       animateDiv();
     });
+
+
 
   }
 
@@ -49,11 +55,16 @@ $(document).ready(function(){
 
     var greatest = x > y ? x : y;
 
-    var speedModifier = 0.2;
+    var speedModifier = 0.3;
 
     var speed = Math.ceil(greatest/speedModifier);
 
     return speed;
 
+
+
   }
+
+
+
 });

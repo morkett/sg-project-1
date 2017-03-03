@@ -4,30 +4,29 @@
 
 body {
   // display: flex;
-  // height: 100vh;
-  // width: 100vw;
-  // div:nth-of-type(2){
-  //   top: 100px;
-  // }
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid red;
+  cursor: url("../images/cross--hair.png"), auto;
+
+
+
 }
 
-div {
+.target {
   height: 80px;
   width: 80px;
-  background-color: red;
+  background-color: green;
+
   position: fixed;
+  border-radius: 50%;
+
   // animation: test 1s linear alternate infinite;
-  // cursor: crosshair;
+
+
 }
 
-.animation-stop {
-  animation-play-state: paused;
-}
 
-@keyframes test {
-  from {left: 0;}
-  to {left: 90%}
-}
 
 // STYLES GO HERE //
 

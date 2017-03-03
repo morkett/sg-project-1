@@ -44,17 +44,15 @@ table {
 * {
   box-sizing: border-box; }
 
-div {
+body {
+  height: 100vh;
+  width: 100vw;
+  border: 2px solid red;
+  cursor: url("../images/cross--hair.png"), auto; }
+
+.target {
   height: 80px;
   width: 80px;
-  background-color: red;
-  position: fixed; }
-
-.animation-stop {
-  animation-play-state: paused; }
-
-@keyframes test {
-  from {
-    left: 0; }
-  to {
-    left: 90%; } }
+  background-color: green;
+  position: fixed;
+  border-radius: 50%; }
