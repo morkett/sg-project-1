@@ -23,14 +23,15 @@
     "run-sequence": "^1.2.2"
   },
   "dependencies": {
+    "bower": "^1.8.0",
     "browser-sync": "^2.18.6",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-cache": "^0.4.5",
     "gulp-cssnano": "^2.1.2",
-    "gulp-imagemin": "^3.1.1",
     "gulp-if": "^2.0.2",
+    "gulp-imagemin": "^3.1.1",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.1.2",
@@ -45,7 +46,7 @@
   },
   "homepage": "https://github.com/morkett/sg-project-1#readme",
   "engines": {
-   "node": "6.8.0",
-   "npm": ">= 3"
- }
+    "node": "6.8.0",
+    "npm": ">= 3"
+  }
 }
