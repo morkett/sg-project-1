@@ -11,49 +11,49 @@
 // }); /* document ready */
 $(document).ready(function(){
 
-    $('div').click(function(){
-      $(this).hide();
-    });
+  $('div').click(function(){
+    $(this).hide();
+  });
 
   animateDiv();
 
 
-function makeNewPosition(){
+  function makeNewPosition(){
 
     // Get viewport dimensions (remove the dimension of the div)
-  var h = $(window).height() - 50;
-  var w = $(window).width() - 50;
+    var h = $(window).height() - 50;
+    var w = $(window).width() - 50;
 
-  var nh = Math.floor(Math.random() * h);
-  var nw = Math.floor(Math.random() * w);
+    var nh = Math.floor(Math.random() * h);
+    var nw = Math.floor(Math.random() * w);
 
-  return [nh,nw];
+    return [nh,nw];
 
-}
+  }
 
-function animateDiv(){
-  var newq = makeNewPosition();
-  var oldq = $('.a').offset();
-  var speed = calcSpeed([oldq.top, oldq.left], newq);
+  function animateDiv(){
+    var newq = makeNewPosition();
+    var oldq = $('.a').offset();
+    var speed = calcSpeed([oldq.top, oldq.left], newq);
 
-  $('.a').animate({ top: newq[0], left: newq[1] }, speed, function(){
-    animateDiv();
-  });
+    $('.a').animate({ top: newq[0], left: newq[1] }, speed, function(){
+      animateDiv();
+    });
 
-}
+  }
 
-function calcSpeed(prev, next) {
+  function calcSpeed(prev, next) {
 
-  var x = Math.abs(prev[1] - next[1]);
-  var y = Math.abs(prev[0] - next[0]);
+    var x = Math.abs(prev[1] - next[1]);
+    var y = Math.abs(prev[0] - next[0]);
 
-  var greatest = x > y ? x : y;
+    var greatest = x > y ? x : y;
 
-  var speedModifier = 0.2;
+    var speedModifier = 0.2;
 
-  var speed = Math.ceil(greatest/speedModifier);
+    var speed = Math.ceil(greatest/speedModifier);
 
-  return speed;
+    return speed;
 
-}
+  }
 });
