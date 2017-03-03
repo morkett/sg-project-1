@@ -4,9 +4,11 @@
   "description": "Game demo created for Sparta Global",
   "main": "index.js",
   "scripts": {
-    "start": "npm install && bower install",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node index.js",
+  "postinstall": "bower install",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+
   "author": "David Corkett",
   "license": "ISC",
   "devDependencies": {
@@ -35,7 +37,8 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.1.2",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^1.2.2",
+    "node-static": "^0.7.9"
   },
   "repository": {
     "type": "git",
