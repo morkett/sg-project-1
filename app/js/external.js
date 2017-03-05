@@ -2,7 +2,12 @@
 $(document).ready(function(){
 
 //SCOREBOARD
-  var score = 0;
+  // var score = 0;
+  // var lifeLeft = 3;
+  // var lifeTotal = '.life'+lifeLeft;
+
+  // console.log(lifeTotal);
+
 
 
 // //CLICK TARGET
@@ -71,9 +76,13 @@ $(document).ready(function(){
 //
 //   }
 //
-//
+var score = 0;
+
 
   function collision($div1, $div2) {
+    var lifeLeft = 3;
+    var lifeTotal = '.life'+lifeLeft;
+
     var x1 = $div1.offset().left;
     var y1 = $div1.offset().top;
     var h1 = $div1.outerHeight(true);
@@ -88,7 +97,7 @@ $(document).ready(function(){
     var r2 = x2 + w2;
 
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
-      if(score >= 1000) {
+      if(score >= 5000) {
         // TODO: CHANGE WHEN YOU REACH 1000 POINTS, YOU WIN
         // $('body').hide();
       } else {
@@ -98,14 +107,12 @@ $(document).ready(function(){
 
     }    else {
       // TODO: CHANGE TO LOOSE LIFE + GAME OVER
+      $(lifeTotal).addClass('i-no-life');
+      lifeLeft-=1;
+      lifeTotal = '.life'+lifeLeft;
+      console.log(lifeLeft +' '+lifeTotal);
       $('.target').addClass('target-fade-out');
       $('.target').show().addClass('target-out-of-range');
-      setTimeout(function () {
-        $('.target').show().removeClass('target-fade-out').removeClass('target-out-of-range');
-
-      }, 2000);
-
-
     }
   }
 
@@ -113,8 +120,23 @@ $(document).ready(function(){
 
 
   window.setInterval(function() {
-    collision($('#div1'), $('.target'));
-  }, 200);
+    collision($('.hitBox-user-1'), $('.target'));
+  }, 500);
+  window.setInterval(function() {
+    collision($('.hitBox-user-2'), $('.target'));
+  }, 500);
+  window.setInterval(function() {
+    collision($('.hitBox-user-3'), $('.target'));
+  }, 500);
+  window.setInterval(function() {
+    collision($('.hitBox-user-4'), $('.target'));
+  }, 500);
+  window.setInterval(function() {
+    collision($('.hitBox-user-5'), $('.target'));
+  }, 500);
+  window.setInterval(function() {
+    collision($('.hitBox-user-6'), $('.target'));
+  }, 500);
 
 
 
