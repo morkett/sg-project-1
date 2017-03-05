@@ -113,7 +113,7 @@ i {
   background: url("../images/ship-pixel-2.png");
   background-size: contain;
   opacity: 1;
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
   top: 0px;
   overflow: visible;
@@ -121,6 +121,10 @@ i {
   -ms-transform: translateY(-10vh);
       transform: translateY(-10vh);
   z-index: 5; }
+
+.target2 {
+  left: 50%;
+  animation-delay: 5s; }
 
 @keyframes vertical-ani-down {
   33% {
