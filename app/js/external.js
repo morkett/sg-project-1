@@ -5,71 +5,71 @@ $(document).ready(function(){
   var score = 0;
 
 
-//CLICK TARGET
-  $('.target').click(function(){
-    //change hide to classes
-    $(this).addClass('target-fade-out');
-    $('.target').show().addClass('target-out-of-range');
-    setTimeout(function () {
-      $('.target').show().removeClass('target-fade-out').removeClass('target-out-of-range');
+// //CLICK TARGET
+//   $('.target').click(function(){
+//     //change hide to classes
+//     $(this).addClass('target-fade-out');
+//     $('.target').show().addClass('target-out-of-range');
+//     setTimeout(function () {
+//       $('.target').show().removeClass('target-fade-out').removeClass('target-out-of-range');
+//
+//     }, 2000);
+//
+//     if(score >= 900) {
+//       //CHANGE WHAT HAPPENS AT 1000s POINTS
+//       $('body').hide();
+//     } else {
+//       $('.score-number').html(score+=100);
+//     }
+//
+//   });
 
-    }, 2000);
-
-    if(score >= 900) {
-      //CHANGE WHAT HAPPENS AT 1000s POINTS
-      $('body').hide();
-    } else {
-      $('.score-number').html(score+=100);
-    }
-
-  });
-
-//RANDOM MOVEMENT
-  animateDiv();
-
-
-  function makeNewPosition(){
-
-    // Get viewport dimensions (remove the dimension of the div)
-    var h = $(window).height() - 200;
-    var w = $(window).width() - 200;
-
-    var nh = Math.floor(Math.random() * h);
-    var nw = Math.floor(Math.random() * w);
-
-    return [nh,nw];
-
-  }
-
-  function animateDiv(){
-    var newq = makeNewPosition();
-    var oldq = $('.target').offset();
-    var speed = calcSpeed([oldq.top, oldq.left], newq);
-
-    $('.target').animate({ top: newq[0], left: newq[1] }, speed, function(){
-      animateDiv();
-    });
-
-
-
-  }
-
-  function calcSpeed(prev, next) {
-
-    var x = Math.abs(prev[1] - next[1]);
-    var y = Math.abs(prev[0] - next[0]);
-
-    var greatest = x > y ? x : y;
-
-    var speedModifier = 0.5;
-
-    var speed = Math.ceil(greatest/speedModifier);
-
-    return speed;
-
-
-
-  }
+// //RANDOM MOVEMENT
+//   animateDiv();
+//
+//
+//   function makeNewPosition(){
+//
+//     // Get viewport dimensions (remove the dimension of the div)
+//     var h = $(window).height() - 200;
+//     var w = $(window).width() - 200;
+//
+//     var nh = Math.floor(Math.random() * h);
+//     var nw = Math.floor(Math.random() * w);
+//
+//     return [nh,nw];
+//
+//   }
+//
+//   function animateDiv(){
+//     var newq = makeNewPosition();
+//     var oldq = $('.target').offset();
+//     var speed = calcSpeed([oldq.top, oldq.left], newq);
+//
+//     $('.target').animate({ top: newq[0], left: newq[1] }, speed, function(){
+//       animateDiv();
+//     });
+//
+//
+//
+//   }
+//
+//   function calcSpeed(prev, next) {
+//
+//     var x = Math.abs(prev[1] - next[1]);
+//     var y = Math.abs(prev[0] - next[0]);
+//
+//     var greatest = x > y ? x : y;
+//
+//     var speedModifier = 0.5;
+//
+//     var speed = Math.ceil(greatest/speedModifier);
+//
+//     return speed;
+//
+//
+//
+//   }
 //
 //
 
@@ -88,17 +88,15 @@ $(document).ready(function(){
     var r2 = x2 + w2;
 
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2){
-      console.log('Not Hit');
       if(score >= 1000) {
         // TODO: CHANGE WHEN YOU REACH 1000 POINTS, YOU WIN
-        $('body').hide();
+        // $('body').hide();
       } else {
         //SCORE TOTAL
         $('.score-number').html(score+=10);
       }
 
     }    else {
-      console.log('this worked');
       // TODO: CHANGE TO LOOSE LIFE + GAME OVER
       $('.target').addClass('target-fade-out');
       $('.target').show().addClass('target-out-of-range');
@@ -146,6 +144,7 @@ function movePlane() {
     if (!keys.hasOwnProperty(direction)) continue;
     if (direction == 37) {
       $('#div1').animate({left: '-=5'}, 0);
+      console.log($('#div1').css('left'));
     }
     if (direction == 38) {
       $('#div1').animate({top: '-=5'}, 0);
