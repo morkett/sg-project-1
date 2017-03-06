@@ -64,7 +64,7 @@ body {
   border: 2px solid red;
   background-color: #000;
   padding: 20px;
-  cursor: crosshair;
+  cursor: url("../images/cursor_cross_white.png"), crosshair;
   overflow: hidden;
   position: relative;
   color: #fff;
@@ -83,11 +83,73 @@ body:after {
   background: url("../images/bkgrnd.gif") center center;
   background-size: contain;
   opacity: .5;
-  z-index: 1; }
+  z-index: -1; }
 
 p {
   position: relative;
   z-index: 10; }
+
+.instructions-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  top: 0;
+  left: 0; }
+  .instructions-container .inner-ins-container {
+    background-color: black;
+    border: 10px solid red;
+    width: 55%;
+    height: auto;
+    padding: 50px;
+    z-index: 999; }
+    .instructions-container .inner-ins-container h1 {
+      font-size: 2em;
+      margin-bottom: 20px; }
+    .instructions-container .inner-ins-container h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px; }
+    .instructions-container .inner-ins-container p {
+      margin-bottom: 20px; }
+      .instructions-container .inner-ins-container p .icon {
+        height: 80px;
+        width: 80px;
+        padding: 10px;
+        border: 3px solid red;
+        background: url("../images/ship-pixel-2.png") center no-repeat;
+        background-size: 40px;
+        display: inline-block;
+        cursor: url("../images/cursor_cross_red.png"), crosshair; }
+    .instructions-container .inner-ins-container .btn {
+      font-size: 1.5em;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: 2px solid red; }
+    .instructions-container .inner-ins-container .btn:hover {
+      border: 2px solid white; }
+    .instructions-container .inner-ins-container .btn:active {
+      background-color: white;
+      color: red; }
+
+.instructions-container:before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 800; }
 
 i {
   background: url("../images/life.png") center no-repeat;
@@ -115,36 +177,31 @@ i {
   opacity: 1;
   position: absolute;
   border-radius: 50%;
-  top: 0px;
   overflow: visible;
-  animation: vertical-ani-down 15s linear 0s infinite;
-  -ms-transform: translateY(-10vh);
-      transform: translateY(-10vh);
-  z-index: 5; }
+  z-index: 5;
+  cursor: url("../images/cursor_cross_red.png"), crosshair;
+  transition: top 10s linear; }
 
-.target2 {
-  left: 50%;
-  animation-delay: 5s; }
+.target-moveDown {
+  animation: vertical-ani-down 5s linear 0s infinite; }
 
 @keyframes vertical-ani-down {
-  33% {
-    transform: translateY(-10vh); }
   100% {
-    transform: translateY(100vh); } }
+    top: 100vh; } }
 
 #div1 {
   width: 60px;
   background-color: transparent;
   height: 50px;
   position: absolute;
-  top: 40%;
-  left: 40%;
+  top: 90%;
+  left: 45%;
   z-index: 5;
   background-size: contain;
   overflow: visible; }
   #div1 img {
     position: relative;
-    opacity: .5;
+    opacity: 1;
     display: block; }
 
 .inner-hitBox-user-user {
@@ -187,13 +244,14 @@ i {
   width: 32px;
   left: 15px; }
 
-.target-out-of-range {
-  -ms-transform: translateY(-1000%);
-      transform: translateY(-1000%);
-  transition: transform .5s ease 1s; }
+.hitBox-user-1, .hitBox-user-2, .hitBox-user-3, .hitBox-user-4, .hitBox-user-5, .hitBox-user-6 {
+  background-color: transparent !important; }
 
-.target-in-range {
-  top: 0 !important; }
+.bg-explosion {
+  background: url(../images/explosion.gif); }
+
+.display-none {
+  display: none; }
 
 #stars {
   content: "";
