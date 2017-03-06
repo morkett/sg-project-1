@@ -1,12 +1,9 @@
 function Score() {
-  this._value = 200;
+  this._value = 0;
   this.value = function () {
     return this._value;
   };
   this.increaseBy = function (value) {
-    this._value += value;
+    return this._value += value;
   };
-  // this.decreaseBy = function (value) {
-  //   this._value -= value;
-  // };
 }

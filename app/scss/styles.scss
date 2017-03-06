@@ -89,7 +89,17 @@ p{
       display: inline-block;
       cursor: url("../images/cursor_cross_red.png"), crosshair;
 
-
+    }
+    span {
+      display: inline-block;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .icon-arrow {
+      width: 80px;
+      height: 80px;
+      font-size: 2em;
+      background: none;
     }
   }
 
@@ -162,6 +172,17 @@ i {
   transition: top 10s linear;
 }
 
+.target-flame:after {
+    @include pseudo;
+    height: 50px;
+    width: 20px;
+    top: -25px;
+    left: 21px;
+    background: url('../images/flame.gif') no-repeat;
+    background-size: contain;
+    z-index: -1;
+    }
+
 .target-moveDown {
   animation: vertical-ani-down 5s linear 0s infinite;
 }
@@ -190,6 +211,19 @@ i {
         // top: -45%;
       }
 }
+
+.div1-flame:after {
+    @include pseudo;
+    height: 50px;
+    width: 50px;
+    top: 40px;
+    left: -4px;
+    background-color: red;
+    background: url('../images/flame.gif') no-repeat;
+    background-size: contain;
+   transform: rotate(180deg);
+    z-index: -1;
+    }
 .inner-hitBox-user-user {
   position: absolute;
   width: 10px;

@@ -129,6 +129,15 @@ p {
         background-size: 40px;
         display: inline-block;
         cursor: url("../images/cursor_cross_red.png"), crosshair; }
+      .instructions-container .inner-ins-container p span {
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle; }
+      .instructions-container .inner-ins-container p .icon-arrow {
+        width: 80px;
+        height: 80px;
+        font-size: 2em;
+        background: none; }
     .instructions-container .inner-ins-container .btn {
       font-size: 1.5em;
       padding: 10px;
@@ -182,6 +191,18 @@ i {
   cursor: url("../images/cursor_cross_red.png"), crosshair;
   transition: top 10s linear; }
 
+.target-flame:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  top: -25px;
+  left: 21px;
+  background: url("../images/flame.gif") no-repeat;
+  background-size: contain;
+  z-index: -1; }
+
 .target-moveDown {
   animation: vertical-ani-down 5s linear 0s infinite; }
 
@@ -203,6 +224,21 @@ i {
     position: relative;
     opacity: 1;
     display: block; }
+
+.div1-flame:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 50px;
+  top: 40px;
+  left: -4px;
+  background-color: red;
+  background: url("../images/flame.gif") no-repeat;
+  background-size: contain;
+  -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+  z-index: -1; }
 
 .inner-hitBox-user-user {
   position: absolute;

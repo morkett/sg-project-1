@@ -1,7 +1,7 @@
 /* global Score, Target, $container */
 
 $(document).ready(function(){
-  var score = new Score(100);
+  var score = new Score();
   var $container = $('.container');
   var target1 = new Target($container,50, 0, 500);
   var target2 = new Target($container,100, -100, 7);
@@ -10,20 +10,13 @@ $(document).ready(function(){
   var target5 = new Target($container,550, -50, 7);
   var targets = [target1, target2, target3, target4, target5];
 
-$('.btn').click(function(){
-  $('.instructions-container').fadeOut();
-setTimeout(function () {
 
 
-  targets.forEach(function (target) {
-    target.show();
-    setTimeout(function () {
-      target.moveDown();
-    }, 1000);
+
+  $('.target').click(function(){
+    console.log(score);
+    $('.score-number').html(score.increaseBy(100));
   });
-  }, 1000);
-});
-
 
 
 
@@ -36,6 +29,7 @@ setTimeout(function () {
 
   $(document).keyup(function(e) {
     delete keys[e.keyCode];
+    $('#div1').removeClass('div1-flame');
   });
 
 
@@ -46,18 +40,52 @@ setTimeout(function () {
       }
       if (parseInt(direction) === 37) {
         $('#div1').animate({left: '-=5'}, 0);
+        $('#div1').addClass('div1-flame');
       }
       if (direction == 38) {
         $('#div1').animate({top: '-=5'}, 0);
+        $('#div1').addClass('div1-flame');
       }
       if (direction == 39) {
         $('#div1').animate({left: '+=5'}, 0);
+        $('#div1').addClass('div1-flame');
       }
       if (direction == 40) {
         $('#div1').animate({top: '+=5'}, 0);
+        $('#div1').addClass('div1-flame');
       }
     }
   }
+
+  $('.btn').click(function(){
+    $('.instructions-container').fadeOut();
+
+    var doUpdate = function() {
+      $('.countdown').each(function() {
+        var count = parseInt($(this).html());
+        if (count !== 0) {
+          $(this).html(count - 1);
+        }
+        if(count == 0) {
+          console.log('you lose!');
+        }
+      });
+    };
+
+      // Schedule the update to happen once every second
+    setInterval(doUpdate, 1000);
+    setTimeout(function () {
+
+      targets.forEach(function (target) {
+        target.show();
+        setTimeout(function () {
+          target.moveDown();
+        }, 1000);
+      });
+    }, 1000);
+  });
+
+
 
 
 });

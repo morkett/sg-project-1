@@ -16,10 +16,9 @@ function Target($container, x, y, deltaY) {
 
 Target.prototype.init = function () {
   this.$container = $('.container');
-  this.$element = $('<div class="target"></div>');
+  this.$element = $('<div class="target target-flame"></div>');
   this.$element.appendTo(this.$container);
 
-  console.log(this.$element.offset());
   this.hide();
   this.moveDown();
   this.explode();
@@ -55,14 +54,14 @@ Target.prototype.moveDown = function () {
 
 Target.prototype.explode = function () {
   $('.target').click(function(){
-    console.log('hit');
+    // console.log('hit');
+    $(this).removeClass('target-flame');
     $(this).addClass('bg-explosion');
+
     setTimeout(function () {
       $('.bg-explosion').remove();
     }, 400);
   });
 
-  Target.prototype.score = function(){
 
-  };
 };
