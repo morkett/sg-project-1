@@ -280,8 +280,22 @@ i {
 }
 
 
+#test {
+  height: 20px;
+  width: 20px;
+  background-color: red;
+  position: absolute;
+  border-radius: 50%;
+  transition: top 0.5s linear, left 0.5s linear;
+  top:90%;
+  left:47%;
+}
 
-
+.test-class {
+  top:90% !important;
+  left:45% !important;
+  opacity: 0;
+}
 
 
 // STYLES GO HERE //

@@ -85,7 +85,15 @@ $(document).ready(function(){
     }, 1000);
   });
 
-
+  $('.target').click( function(event) {
+    $("#test").css( {position:"absolute", top:event.pageY, left: event.pageX});
+    setTimeout(function () {
+      $('#test').addClass('test-class');
+    }, 500);
+    setTimeout(function () {
+      $('#test').removeClass('test-class');
+    }, 10);
+  });
 
 
 });
