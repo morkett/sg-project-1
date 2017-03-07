@@ -339,6 +339,7 @@ i {
   top: 0;
   left: 0;
   background: url("../images/intro-background.png") center no-repeat;
+  background-size: contain;
   cursor: url("../images/cursor_cross_red.png"), crosshair; }
   .game-over-container .game-over-inside, .game-over-container .lost-a-life-inside, .lost-a-life-container .game-over-inside, .lost-a-life-container .lost-a-life-inside {
     background-color: black;

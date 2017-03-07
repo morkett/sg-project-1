@@ -18,7 +18,8 @@ $(document).ready(function(){
   var targets = [target1, target2, target3, target4, target5, target6, target7, target8, target9, target10, target11];
 
 
-
+// TODO: ADD WIN GAME IF 1500
+// FIXME: FIX BUG WITH 2nd Ships;
 
 
   $('.target, .target2').click(function(){

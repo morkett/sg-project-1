@@ -316,6 +316,7 @@ i {
   text-align: center;
   @include flexbox;
   background: url('../images/intro-background.png') center no-repeat;
+  background-size: contain;
   cursor: url("../images/cursor_cross_red.png"), crosshair;
   // background: red;
 
