@@ -71,7 +71,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 12px;
   line-height: 1.5em;
-  z-index: 2; }
+  z-index: 1; }
 
 body:after {
   content: '';
@@ -80,9 +80,10 @@ body:after {
   width: 100%;
   left: 0;
   top: 0;
-  background: url("../images/bkgrnd.gif") center center;
+  background: url("../images/main-background.png") center center no-repeat, url("../images/bkgrnd.gif");
   background-size: contain;
-  opacity: .5;
+  background-position: bottom;
+  opacity: 1;
   z-index: -1; }
 
 p {
@@ -114,12 +115,12 @@ p {
     z-index: 999; }
     .instructions-container .inner-ins-container h1 {
       font-size: 2em;
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
     .instructions-container .inner-ins-container h2 {
       font-size: 1.5em;
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
     .instructions-container .inner-ins-container p {
-      margin-bottom: 20px; }
+      margin-bottom: 30px; }
       .instructions-container .inner-ins-container p .icon {
         height: 80px;
         width: 80px;
@@ -127,17 +128,16 @@ p {
         border: 3px solid red;
         background: url("../images/ship-pixel-2.png") center no-repeat;
         background-size: 40px;
-        display: inline-block;
-        cursor: url("../images/cursor_cross_red.png"), crosshair; }
+        display: block;
+        cursor: url("../images/cursor_cross_red.png"), crosshair;
+        margin: 20px auto; }
+      .instructions-container .inner-ins-container p .icon-target2 {
+        background: url("../images/ship-pixel-3.png") center no-repeat;
+        background-size: 40px; }
       .instructions-container .inner-ins-container p span {
         display: inline-block;
         text-align: center;
         vertical-align: middle; }
-      .instructions-container .inner-ins-container p .icon-arrow {
-        width: 80px;
-        height: 80px;
-        font-size: 2em;
-        background: none; }
     .instructions-container .inner-ins-container .btn {
       font-size: 1.5em;
       padding: 10px;
@@ -156,6 +156,8 @@ p {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  background: url("../images/intro-background.png") center center no-repeat;
+  background-size: cover;
   top: 0;
   left: 0;
   z-index: 800; }
@@ -178,7 +180,7 @@ i {
   text-align: center;
   vertical-align: middle; }
 
-.target {
+.target, .target2 {
   height: 60px;
   width: 60px;
   background: url("../images/ship-pixel-2.png");
@@ -190,6 +192,9 @@ i {
   z-index: 5;
   cursor: url("../images/cursor_cross_red.png"), crosshair;
   transition: top 10s linear; }
+
+.target2 {
+  background: url("../images/ship-pixel-3.png"); }
 
 .target-flame:after {
   content: "";
@@ -203,22 +208,44 @@ i {
   background-size: contain;
   z-index: -1; }
 
+.target2-flame:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 20px;
+  top: 10px;
+  left: -15px;
+  background: url("../images/flame.gif") no-repeat;
+  background-size: contain;
+  z-index: -1;
+  -ms-transform: rotate(-90deg);
+      transform: rotate(-90deg); }
+
 .target-moveDown {
   animation: vertical-ani-down 5s linear 0s infinite; }
+
+.target-moveRight {
+  animation: horizontal-ani-right 5s linear 0s infinite; }
+
+@keyframes horizontal-ani-right {
+  100% {
+    left: 100vw; } }
 
 @keyframes vertical-ani-down {
   100% {
     top: 100vh; } }
 
 #div1 {
-  width: 60px;
+  width: 150px;
   background-color: transparent;
-  height: 50px;
+  height: 100px;
   position: absolute;
   top: 90%;
   left: 45%;
   z-index: 5;
-  background-size: contain;
+  background: url("../images/main-ship.png") no-repeat;
+  background-size: cover;
   overflow: visible; }
   #div1 img {
     position: relative;
@@ -240,69 +267,107 @@ i {
       transform: rotate(180deg);
   z-index: -1; }
 
-.inner-hitBox-user-user {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background-color: red;
-  left: 25px;
-  top: 10px; }
-
-.hitBox-user-1 {
-  width: 9px;
-  left: 26px;
-  top: 0px; }
-
-.hitBox-user-2 {
-  background-color: yellow;
-  left: 12px;
-  top: 12px; }
-
-.hitBox-user-3 {
-  background-color: green;
-  left: 40px;
-  top: 12px; }
-
-.hitBox-user-4 {
-  background-color: purple;
-  height: 12px;
-  top: 25px;
-  left: 50px; }
-
-.hitBox-user-5 {
-  background-color: grey;
-  height: 12px;
-  top: 25px;
-  left: 1px; }
-
-.hitBox-user-6 {
-  top: 33px;
-  width: 32px;
-  left: 15px; }
-
-.hitBox-user-1, .hitBox-user-2, .hitBox-user-3, .hitBox-user-4, .hitBox-user-5, .hitBox-user-6 {
-  background-color: transparent !important; }
-
 .bg-explosion {
+  transition: background 0s linear .1s;
   background: url(../images/explosion.gif); }
 
 .display-none {
   display: none; }
 
-#test {
-  height: 20px;
-  width: 20px;
-  background-color: red;
+#laser {
+  height: 100px;
+  width: 150px;
   position: absolute;
-  border-radius: 50%;
-  transition: top 0.5s linear, left 0.5s linear;
+  transition: top 0.2s linear, left 0.2s linear;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  top: 0;
+  left: 0;
   top: 90%;
-  left: 47%; }
+  left: 45%; }
+  #laser .inner-laser {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    -ms-flex-item-align: baseline;
+        align-self: baseline;
+    border: 5px solid rgba(255, 0, 0, 0.5); }
 
-.test-class {
+.laser-return {
   top: 90% !important;
   left: 45% !important;
   opacity: 0; }
+
+.on-fire::after, .on-fire::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 50px;
+  width: 10px;
+  top: 0px;
+  left: 21px;
+  background: url("../images/flame.gif") no-repeat;
+  -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+  background-size: contain;
+  z-index: -1; }
+
+.on-fire::before {
+  width: 15px;
+  top: 30px; }
+
+.game-over-container, .lost-a-life-container {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 999;
+  text-align: center;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  top: 0;
+  left: 0;
+  background: url("../images/intro-background.png") center no-repeat;
+  cursor: url("../images/cursor_cross_red.png"), crosshair; }
+  .game-over-container .game-over-inside, .game-over-container .lost-a-life-inside, .lost-a-life-container .game-over-inside, .lost-a-life-container .lost-a-life-inside {
+    background-color: black;
+    border: 10px solid red;
+    width: 55%;
+    height: auto;
+    padding: 50px;
+    z-index: 999; }
+    .game-over-container .game-over-inside h1, .game-over-container .lost-a-life-inside h1, .lost-a-life-container .game-over-inside h1, .lost-a-life-container .lost-a-life-inside h1 {
+      font-size: 2em;
+      margin-bottom: 20px; }
+    .game-over-container .game-over-inside h2, .game-over-container .lost-a-life-inside h2, .lost-a-life-container .game-over-inside h2, .lost-a-life-container .lost-a-life-inside h2 {
+      font-size: 1.5em;
+      margin-bottom: 20px; }
+    .game-over-container .game-over-inside .btn, .game-over-container .lost-a-life-inside .btn, .lost-a-life-container .game-over-inside .btn, .lost-a-life-container .lost-a-life-inside .btn {
+      font-size: 1.5em;
+      padding: 10px;
+      background-color: red;
+      color: white;
+      border: 2px solid red;
+      cursor: url("../images/cursor_cross_white.png"), crosshair; }
+    .game-over-container .game-over-inside .btn:hover, .game-over-container .lost-a-life-inside .btn:hover, .lost-a-life-container .game-over-inside .btn:hover, .lost-a-life-container .lost-a-life-inside .btn:hover {
+      border: 2px solid white; }
+    .game-over-container .game-over-inside .btn:active, .game-over-container .lost-a-life-inside .btn:active, .lost-a-life-container .game-over-inside .btn:active, .lost-a-life-container .lost-a-life-inside .btn:active {
+      background-color: white;
+      color: red; }
+
+.lost-a-life-container {
+  background: transparent; }
 
 #stars {
   content: "";

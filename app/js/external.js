@@ -1,73 +1,75 @@
-/* global Score, Target, $container */
+/* global Score, Target, Target2 $container */
 
 $(document).ready(function(){
   var score = new Score();
   var $container = $('.container');
   var target1 = new Target($container,50, 0, 500);
-  var target2 = new Target($container,100, -100, 7);
-  var target3 = new Target($container,300, -100, 7);
-  var target4 = new Target($container,400, -200, 7);
-  var target5 = new Target($container,550, -50, 7);
-  var targets = [target1, target2, target3, target4, target5];
+  var target2 = new Target($container,300, -200, 7);
+  var target3 = new Target($container,600, -300, 7);
+  var target4 = new Target($container,800, -500, 7);
+  var target5 = new Target($container,950, -50, 7);
+  var target6 = new Target($container,1250, -50, 7);
+
+  var target7 = new Target2($container,-100,100,7);
+  var target8 = new Target2($container,-70,300,0);
+  var target9 = new Target2($container,-50,550,0);
+  var target10 = new Target2($container,-20,650,0);
+  var target11 = new Target2($container,-150,450,0);
+  var targets = [target1, target2, target3, target4, target5, target6, target7, target8, target9, target10, target11];
 
 
 
 
-  $('.target').click(function(){
+
+  $('.target, .target2').click(function(){
     console.log(score);
     $('.score-number').html(score.increaseBy(100));
   });
 
-
-
-  setInterval(movePlane, 20);
-  var keys = {};
-
-  $(document).keydown(function(e) {
-    keys[e.keyCode] = true;
-  });
-
-  $(document).keyup(function(e) {
-    delete keys[e.keyCode];
-    $('#div1').removeClass('div1-flame');
-  });
-
-
-  function movePlane() {
-    for (var direction in keys) {
-      if (!keys.hasOwnProperty(direction)) {
-        continue;
-      }
-      if (parseInt(direction) === 37) {
-        $('#div1').animate({left: '-=5'}, 0);
-        $('#div1').addClass('div1-flame');
-      }
-      if (direction == 38) {
-        $('#div1').animate({top: '-=5'}, 0);
-        $('#div1').addClass('div1-flame');
-      }
-      if (direction == 39) {
-        $('#div1').animate({left: '+=5'}, 0);
-        $('#div1').addClass('div1-flame');
-      }
-      if (direction == 40) {
-        $('#div1').animate({top: '+=5'}, 0);
-        $('#div1').addClass('div1-flame');
-      }
-    }
-  }
-
+  var lifes = 4;
+  var looseLife = [$('.life3'), $('.life2'), $('.life1')];
   $('.btn').click(function(){
     $('.instructions-container').fadeOut();
 
+
     var doUpdate = function() {
       $('.countdown').each(function() {
+
         var count = parseInt($(this).html());
         if (count !== 0) {
           $(this).html(count - 1);
         }
-        if(count == 0) {
-          console.log('you lose!');
+        if(count === 0) {
+          lifes-=1;
+          if(lifes === 3){
+            $('.lost-a-life-container').show();
+            looseLife[2].hide();
+            setTimeout(function () {
+              $('.lost-a-life-container').fadeOut(1000);
+            }, 10);
+            setTimeout(function () {
+              $('.lost-a-life-container').hide();
+            }, 1000);
+            count = parseInt($(this).html(10));
+
+
+          }
+          if(lifes<3) {
+            $('.lost-a-life-container').show();
+            looseLife[1].hide();
+            setTimeout(function () {
+              $('.lost-a-life-container').fadeOut(1000);
+            }, 10);
+            setTimeout(function () {
+              $('.lost-a-life-container').hide();
+            }, 1000);
+            count = parseInt($(this).html(10));
+          }
+          if(lifes<2) {
+            $('.lost-a-life-container').hide();
+            looseLife[0].hide();
+            $('.game-over-container').fadeIn();
+          }
         }
       });
     };
@@ -83,17 +85,10 @@ $(document).ready(function(){
         }, 1000);
       });
     }, 1000);
+
   });
 
-  $('.target').click( function(event) {
-    $("#test").css( {position:"absolute", top:event.pageY, left: event.pageX});
-    setTimeout(function () {
-      $('#test').addClass('test-class');
-    }, 500);
-    setTimeout(function () {
-      $('#test').removeClass('test-class');
-    }, 10);
-  });
+
 
 
 });
