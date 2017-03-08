@@ -61,7 +61,6 @@ table {
 body {
   height: 100vh;
   width: 100vw;
-  border: 2px solid red;
   background-color: #000;
   padding: 20px;
   cursor: url("../images/cursor_cross_white.png"), crosshair;
