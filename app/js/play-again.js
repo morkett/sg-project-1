@@ -1,6 +1,11 @@
 // PLAY AGAIN
 
 $(document).ready(function(){
+  $('.sound-lose').trigger('pause');
+  $('.sound-menu').trigger('pause');
+  $('.sound-shoot').trigger('pause');
+  $('.sound-win').trigger('pause');
+  $('.sound-lifeLoss').trigger('pause');
   //body fade in
   $('body').fadeIn();
   //game over modal hide

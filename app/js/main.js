@@ -67,9 +67,11 @@ $(document).ready(function(){
           lifes-=1;
           if(lifes === 3){
             $('.lost-a-life-container').show();
+            $('.sound-lifeLoss').trigger('play');
             looseLife[2].hide();
             setTimeout(function () {
               $('.lost-a-life-container').fadeOut(1000);
+            $('.sound-lifeLoss').trigger('pause');
             }, 10);
             setTimeout(function () {
               $('.lost-a-life-container').hide();
@@ -80,9 +82,11 @@ $(document).ready(function(){
           }
           if(lifes<3) {
             $('.lost-a-life-container').show();
+            $('.sound-lifeLoss').trigger('play');
             looseLife[1].hide();
             setTimeout(function () {
               $('.lost-a-life-container').fadeOut(1000);
+              $('.sound-lifeLoss').trigger('pause');
             }, 10);
             setTimeout(function () {
               $('.lost-a-life-container').hide();
