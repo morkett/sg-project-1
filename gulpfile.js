@@ -11,7 +11,7 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
-    }))
+    }));
 });
 
 
@@ -24,9 +24,9 @@ gulp.task('browserSync', function() {
   browserSync.init({
     server: {
       baseDir: 'app'
-    },
-  })
-})
+    }
+  });
+});
 
 gulp.task('watch', ['browserSync', 'sass'], function (){
   gulp.watch('app/scss/**/*.scss', ['sass']);
@@ -50,7 +50,7 @@ gulp.task('useref', function(){
     .pipe(gulpIf('*.js', uglify()))
     // Minifies only if it's a CSS file
     .pipe(gulpIf('*.css', cssnano()))
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest('dist'));
 });
 
 
@@ -63,9 +63,9 @@ gulp.task('images', function(){
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
   // Caching images that ran through imagemin
   .pipe(cache(imagemin({
-      interlaced: true
-    })))
-  .pipe(gulp.dest('dist../images'))
+    interlaced: true
+  })))
+  .pipe(gulp.dest('dist../images'));
 });
 
 //Cleaning Up Generated files
@@ -73,12 +73,12 @@ var del = require('del');
 
 gulp.task('clean:dist', function() {
   return del.sync('dist');
-})
+});
 
 //Remove images from cache
 gulp.task('cache:clear', function (callback) {
-return cache.clearAll(callback)
-})
+  return cache.clearAll(callback);
+});
 
 
 
@@ -86,8 +86,8 @@ return cache.clearAll(callback)
 gulp.task('default', function (callback) {
   runSequence(['sass','browserSync', 'watch'],
     callback
-  )
-})
+  );
+});
 
 //run sequence
 
@@ -97,5 +97,5 @@ gulp.task('build', function (callback) {
   runSequence('clean:dist',
     ['sass', 'useref', 'images'],
     callback
-  )
-})
+  );
+});
