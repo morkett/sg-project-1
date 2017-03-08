@@ -1,29 +1,16 @@
 {
   "name": "sg-project-1",
   "version": "1.0.0",
-  "description": "Game demo created for Sparta Global",
+  "description": "Game created for Sparta Global",
   "main": "index.js",
   "scripts": {
-  "start": "node index.js",
-  "postinstall": "bower install",
-  "test": "echo \"Error: no test specified\" && exit 1"
-},
+    "start": "node index.js",
+    "postinstall": "bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
 
   "author": "David Corkett",
   "license": "ISC",
-  "devDependencies": {
-    "browser-sync": "^2.18.6",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-cache": "^0.4.5",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-if": "^2.0.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.1.2",
-    "run-sequence": "^1.2.2"
-  },
   "dependencies": {
     "bower": "^1.8.0",
     "browser-sync": "^2.18.6",
