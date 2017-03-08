@@ -223,18 +223,22 @@ i {
       transform: rotate(-90deg); }
 
 .target-moveDown {
-  animation: vertical-ani-down 5s linear 0s infinite; }
+  animation: vertical-ani-down 10s linear 0s infinite backwards; }
 
 .target-moveRight {
-  animation: horizontal-ani-right 5s linear 0s infinite; }
+  animation: horizontal-ani-right 10s linear 0s infinite backwards; }
 
 @keyframes horizontal-ani-right {
+  50% {
+    left: 110vw; }
   100% {
-    left: 100vw; } }
+    left: 110vw; } }
 
 @keyframes vertical-ani-down {
+  50% {
+    top: 110vh; }
   100% {
-    top: 100vh; } }
+    top: 110vh; } }
 
 #div1 {
   width: 150px;
@@ -290,13 +294,16 @@ i {
   top: 0;
   left: 0;
   top: 90%;
-  left: 45%; }
+  left: 45%;
+  opacity: 1; }
   #laser .inner-laser {
     width: 10px;
     height: 10px;
     background-color: red;
     -ms-flex-item-align: baseline;
         align-self: baseline;
+    margin-top: 20px;
+    border-radius: 50%;
     border: 5px solid rgba(255, 0, 0, 0.5); }
 
 .laser-return {
@@ -322,11 +329,12 @@ i {
   width: 15px;
   top: 30px; }
 
-.game-over-container, .lost-a-life-container {
+.game-over-container, .lost-a-life-container, .you-win-container {
   position: absolute;
   height: 100vh;
   width: 100vw;
   z-index: 999;
+  top: 0;
   text-align: center;
   display: -ms-flexbox;
   display: flex;
@@ -339,31 +347,31 @@ i {
   top: 0;
   left: 0;
   background: url("../images/intro-background.png") center no-repeat;
-  background-size: contain;
+  background-size: cover;
   cursor: url("../images/cursor_cross_red.png"), crosshair; }
-  .game-over-container .game-over-inside, .game-over-container .lost-a-life-inside, .lost-a-life-container .game-over-inside, .lost-a-life-container .lost-a-life-inside {
+  .game-over-container .game-over-inside, .game-over-container .lost-a-life-inside, .game-over-container .you-win-inside, .lost-a-life-container .game-over-inside, .lost-a-life-container .lost-a-life-inside, .lost-a-life-container .you-win-inside, .you-win-container .game-over-inside, .you-win-container .lost-a-life-inside, .you-win-container .you-win-inside {
     background-color: black;
     border: 10px solid red;
     width: 55%;
     height: auto;
     padding: 50px;
     z-index: 999; }
-    .game-over-container .game-over-inside h1, .game-over-container .lost-a-life-inside h1, .lost-a-life-container .game-over-inside h1, .lost-a-life-container .lost-a-life-inside h1 {
+    .game-over-container .game-over-inside h1, .game-over-container .lost-a-life-inside h1, .game-over-container .you-win-inside h1, .lost-a-life-container .game-over-inside h1, .lost-a-life-container .lost-a-life-inside h1, .lost-a-life-container .you-win-inside h1, .you-win-container .game-over-inside h1, .you-win-container .lost-a-life-inside h1, .you-win-container .you-win-inside h1 {
       font-size: 2em;
       margin-bottom: 20px; }
-    .game-over-container .game-over-inside h2, .game-over-container .lost-a-life-inside h2, .lost-a-life-container .game-over-inside h2, .lost-a-life-container .lost-a-life-inside h2 {
+    .game-over-container .game-over-inside h2, .game-over-container .lost-a-life-inside h2, .game-over-container .you-win-inside h2, .lost-a-life-container .game-over-inside h2, .lost-a-life-container .lost-a-life-inside h2, .lost-a-life-container .you-win-inside h2, .you-win-container .game-over-inside h2, .you-win-container .lost-a-life-inside h2, .you-win-container .you-win-inside h2 {
       font-size: 1.5em;
       margin-bottom: 20px; }
-    .game-over-container .game-over-inside .btn, .game-over-container .lost-a-life-inside .btn, .lost-a-life-container .game-over-inside .btn, .lost-a-life-container .lost-a-life-inside .btn {
+    .game-over-container .game-over-inside .btn, .game-over-container .lost-a-life-inside .btn, .game-over-container .you-win-inside .btn, .lost-a-life-container .game-over-inside .btn, .lost-a-life-container .lost-a-life-inside .btn, .lost-a-life-container .you-win-inside .btn, .you-win-container .game-over-inside .btn, .you-win-container .lost-a-life-inside .btn, .you-win-container .you-win-inside .btn {
       font-size: 1.5em;
       padding: 10px;
       background-color: red;
       color: white;
       border: 2px solid red;
       cursor: url("../images/cursor_cross_white.png"), crosshair; }
-    .game-over-container .game-over-inside .btn:hover, .game-over-container .lost-a-life-inside .btn:hover, .lost-a-life-container .game-over-inside .btn:hover, .lost-a-life-container .lost-a-life-inside .btn:hover {
+    .game-over-container .game-over-inside .btn:hover, .game-over-container .lost-a-life-inside .btn:hover, .game-over-container .you-win-inside .btn:hover, .lost-a-life-container .game-over-inside .btn:hover, .lost-a-life-container .lost-a-life-inside .btn:hover, .lost-a-life-container .you-win-inside .btn:hover, .you-win-container .game-over-inside .btn:hover, .you-win-container .lost-a-life-inside .btn:hover, .you-win-container .you-win-inside .btn:hover {
       border: 2px solid white; }
-    .game-over-container .game-over-inside .btn:active, .game-over-container .lost-a-life-inside .btn:active, .lost-a-life-container .game-over-inside .btn:active, .lost-a-life-container .lost-a-life-inside .btn:active {
+    .game-over-container .game-over-inside .btn:active, .game-over-container .lost-a-life-inside .btn:active, .game-over-container .you-win-inside .btn:active, .lost-a-life-container .game-over-inside .btn:active, .lost-a-life-container .lost-a-life-inside .btn:active, .lost-a-life-container .you-win-inside .btn:active, .you-win-container .game-over-inside .btn:active, .you-win-container .lost-a-life-inside .btn:active, .you-win-container .you-win-inside .btn:active {
       background-color: white;
       color: red; }
 

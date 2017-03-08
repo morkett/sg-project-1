@@ -22,16 +22,19 @@
     <div class="instructions-container">
         <div class="inner-ins-container">
             <h1>SPACE SHOOTER</h1>
+            <p>Your planet is being invaded by evil aliens...kill them all!</p>
             <h2>INSTRUCTIONS</h2>
             <p>
                 <span class="icon icon-target"></span><span>This is an enemy ship, click it to kill it.</span></p>
-                <p>
+            <p>
                 <span class="icon icon-target icon-target2"></span>
                 <span>This is a hard enemy ship, click it twice to kill it. These reward more points.</span>
-</p>
-                <p>If the time runs out you loose a life. <br>You have 10 seconds for each life.</p> <p>You have 3 lives.</p> <p>
-              <p>If you get 1500 points, you win!</p>
-            <div class="btn">START</div>
+            </p>
+            <p>If the time runs out you loose a life. <br>You have 10 seconds for each life.</p>
+            <p>You have 3 lives.</p>
+            <p>
+                <p>If you get 1500 points, you win!</p>
+                <div class="btn">START</div>
         </div>
     </div>
     <p>Sparta Global Project 1</p>
@@ -48,10 +51,17 @@
     <div id='stars'></div>
     <div id='stars2'></div>
     <div id='stars3'></div>
-    <div class="game-over-container display-none">
+    <div class="game-over-container">
         <div class="game-over-inside">
             <h1>GAME OVER!</h1>
             <h2>You were too slow</h2>
+            <div class="btn">PLAY AGAIN?</div>
+        </div>
+    </div>
+    <div class="you-win-container">
+        <div class="you-win-inside">
+            <h1>YOU ARE A WINNER!</h1>
+            <h2>You destoyed most of the enemy,<br> and saved your planet...well done</h2>
             <div class="btn">PLAY AGAIN?</div>
         </div>
     </div>
@@ -60,15 +70,22 @@
             <h1>You Lost A Life</h1>
         </div>
     </div>
+    <audio class="sound-menu" src="../sounds/menu.wav"></audio>
+    <audio class="sound-game-over" src="../sounds/lose.wav"></audio>
+    <audio class="sound-win" src="../sounds/win.wav"></audio>
+    <audio class="sound-shoot" src="../sounds/shoot.wav"></audio>
 
     <!-- build:js js/external.min.js-->
 
 
     <script src="js/score.js"></script>
-    <script src="js/timer.js"></script>
+
+
     <script src="js/target.js"></script>
     <script src="js/external.js"></script>
+    <script src="js/timer.js"></script>
     <script src="js/bullet.js"></script>
+    <script src="js/play-again.js"></script>
 
 
     <!-- endbuild -->

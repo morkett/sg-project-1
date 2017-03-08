@@ -1,3 +1,6 @@
+
+//TARGET BUILD
+
 /**
  * @param x initial x position
  * @param y initial y position
@@ -18,9 +21,11 @@ Target.prototype.init = function () {
   this.$container = $('.container');
   this.$element = $('<div class="target target-flame"></div>');
   this.$element.appendTo(this.$container);
+  this.$targetSelector = $('.target');
 
   this.hide();
   this.moveDown();
+  // this.scoreAdd();
   this.explode();
   // this.moveTo(this.x, this.y);
 };
@@ -44,13 +49,13 @@ Target.prototype.moveBy = function (byX, byY) {
 };
 
 Target.prototype.moveDown = function () {
-  $('.target').addClass('target-moveDown');
+  this.$targetSelector.addClass('target-moveDown');
   this.y += this.deltaY;
 
 };
 
 Target.prototype.explode = function () {
-  $('.target').click(function(){
+  this.$element.click(function(){
     // console.log('hit');
     $(this).removeClass('target-flame');
     $(this).addClass('bg-explosion');
@@ -60,6 +65,17 @@ Target.prototype.explode = function () {
     }, 400);
   });
 };
+
+// Target.prototype.scoreAdd = function(){
+//   this.$targetSelector.click(function(){
+//     console.log(score);
+//     $('.score-number').html(score.increaseBy(100));
+//   });
+// };
+
+//////////////////////////////////
+//TARGET 2
+/////////////////////////////////
 
 function Target2($container, x, y, deltaY) {
   this.x = x;
@@ -76,9 +92,11 @@ Target2.prototype.init = function () {
   this.$container = $('.container');
   this.$element = $('<div class="target2 target2-flame"></div>');
   this.$element.appendTo(this.$container);
+  this.$targetSelector = $('.target2');
 
   this.hide();
   this.moveDown();
+  // this.scoreAdd();
   this.explode();
   // this.moveTo(this.x, this.y);
 };
@@ -102,14 +120,15 @@ Target2.prototype.moveBy = function (byX, byY) {
 };
 
 Target2.prototype.moveDown = function () {
-  $('.target2').addClass('target-moveRight');
+  this.$targetSelector.addClass('target-moveRight');
   this.y += this.deltaY;
 
 };
 
+//EXPLODE + CLICK COUNT LOG
 Target2.prototype.explode = function () {
   var clickCount = 0;
-  $('.target2').click(function(){
+  this.$element.click(function(){
 
     clickCount+=1;
     console.log(clickCount);

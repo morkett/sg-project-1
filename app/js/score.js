@@ -6,4 +6,7 @@ function Score() {
   this.increaseBy = function (value) {
     return this._value += value;
   };
+  this.scoreOnCLick = function() {
+
+  };
 }
