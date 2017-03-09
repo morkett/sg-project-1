@@ -115,7 +115,7 @@ $(document).ready(function(){
       console.log(score);
 
       $('.score-number').html(score.increaseBy(100));
-      if(score.value() === 100) {
+      if(score.value() === 1600) {
         $('.lost-a-life-container').addClass('js-hide');
         looseLife[0].hide();
         $('.you-win-container').show();
