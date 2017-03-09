@@ -10,11 +10,10 @@
  //////////////////////////////////
  //TARGET 1
  /////////////////////////////////
-function Target1($container, x, y, deltaY) {
+function Target1(x, y, deltaY) {
   this.x = x;
   this.y = y;
   this.deltaY = deltaY;
-  this.$container = $container;
   this.init();
   this.$element.offset({ top: y, left: x });
 }
@@ -68,11 +67,10 @@ Target1.prototype.explode = function () {
 //TARGET 2
 /////////////////////////////////
 
-function Target2($container, x, y, deltaY) {
+function Target2(x, y, deltaY) {
   this.x = x;
   this.y = y;
   this.deltaY = deltaY;
-  this.$container = $container;
   this.init();
   this.$element.offset({ top: y, left: x });
 }

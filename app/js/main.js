@@ -1,21 +1,19 @@
-/* global Score, Target, Target2 $container */
+/* global Score, Target1, Target2  */
 
 $(document).ready(function(){
   //CREATE TARGETS
+  var target1 = new Target1(50, 0, 500);
+  var target2 = new Target1(300, -200, 7);
+  var target3 = new Target1(600, -300, 7);
+  var target4 = new Target1(800, -500, 7);
+  var target5 = new Target1(950, -50, 7);
+  var target6 = new Target1(1250, -50, 7);
 
-  var $container = $('.container');
-  var target1 = new Target1($container,50, 0, 500);
-  var target2 = new Target1($container,300, -200, 7);
-  var target3 = new Target1($container,600, -300, 7);
-  var target4 = new Target1($container,800, -500, 7);
-  var target5 = new Target1($container,950, -50, 7);
-  var target6 = new Target1($container,1250, -50, 7);
-
-  var target7 = new Target2($container,-100,100,7);
-  var target8 = new Target2($container,-70,300,0);
-  var target9 = new Target2($container,-50,550,0);
-  var target10 = new Target2($container,-20,650,0);
-  var target11 = new Target2($container,-150,450,0);
+  var target7 = new Target2(-100,100,7);
+  var target8 = new Target2(-70,300,0);
+  var target9 = new Target2(-50,550,0);
+  var target10 = new Target2(-20,650,0);
+  var target11 = new Target2(-150,450,0);
   var score = new Score();
   var targets1 = [target1, target2, target3, target4, target5, target6];
   var targets2 = [target7, target8, target9, target10, target11];
