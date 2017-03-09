@@ -1,6 +1,9 @@
 // PLAY AGAIN
 
 $(document).ready(function(){
+  document.getElementById('js-theme').volume = 0.5;
+
+
   $('.sound-lose').trigger('pause');
   $('.sound-menu').trigger('pause');
   $('.sound-shoot').trigger('pause');

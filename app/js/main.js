@@ -71,7 +71,7 @@ $(document).ready(function(){
             looseLife[2].hide();
             setTimeout(function () {
               $('.lost-a-life-container').fadeOut(1000);
-            $('.sound-lifeLoss').trigger('pause');
+              $('.sound-lifeLoss').trigger('pause');
             }, 10);
             setTimeout(function () {
               $('.lost-a-life-container').hide();
@@ -109,21 +109,26 @@ $(document).ready(function(){
       // Schedule the update to happen once every second
     setInterval(doUpdate, 1000);
 
-    // FIXME: fix score / Add to
     //ADDS SCORES ON CLICK OF TARGET
     $('.target, .target2').click(function(){
       $('.sound-shoot').trigger('play');
       console.log(score);
 
       $('.score-number').html(score.increaseBy(100));
-      if(score.value() === 1500) {
-        $('.lost-a-life-container').hide();
+      if(score.value() === 100) {
+        $('.lost-a-life-container').addClass('js-hide');
         looseLife[0].hide();
         $('.you-win-container').show();
-
+        document.getElementById('js-theme').volume = 0;
+        document.getElementById('js-lifeLoss').volume = 0;
+        document.getElementById('js-game-over').volume = 0;
           //play win sound
         $('.sound-win').trigger('play');
         $('.sound-lose').trigger('pause');
+
+        setTimeout(function () {
+          document.getElementById('js-theme').volume = 0.5;
+        }, 3000);
 
       }
     });

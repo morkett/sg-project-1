@@ -57,7 +57,8 @@ Thumbs.db
 /.sass-cache
 
 # Ignore CSS & Map File
-
+/css
+*.css
 *.map
 
 # Ignore the Node Modules folder

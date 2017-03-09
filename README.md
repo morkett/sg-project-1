@@ -42,3 +42,5 @@ David Corkett
 
 #### Sound Sources:
 -- [FreeSound.org](https://www.freesound.org/people/LittleRobotSoundFactory/packs/16681/)
+
+-- [Eric Skiff 8bit Sounds](http://ericskiff.com/music/)

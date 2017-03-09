@@ -427,3 +427,6 @@ i {
     transform: translateY(-2000px); }
   to {
     transform: translateY(0px); } }
+
+.js-hide {
+  display: none !important; }
