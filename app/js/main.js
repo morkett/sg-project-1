@@ -4,12 +4,12 @@ $(document).ready(function(){
   //CREATE TARGETS
 
   var $container = $('.container');
-  var target1 = new Target($container,50, 0, 500);
-  var target2 = new Target($container,300, -200, 7);
-  var target3 = new Target($container,600, -300, 7);
-  var target4 = new Target($container,800, -500, 7);
-  var target5 = new Target($container,950, -50, 7);
-  var target6 = new Target($container,1250, -50, 7);
+  var target1 = new Target1($container,50, 0, 500);
+  var target2 = new Target1($container,300, -200, 7);
+  var target3 = new Target1($container,600, -300, 7);
+  var target4 = new Target1($container,800, -500, 7);
+  var target5 = new Target1($container,950, -50, 7);
+  var target6 = new Target1($container,1250, -50, 7);
 
   var target7 = new Target2($container,-100,100,7);
   var target8 = new Target2($container,-70,300,0);
@@ -112,8 +112,6 @@ $(document).ready(function(){
     //ADDS SCORES ON CLICK OF TARGET
     $('.target, .target2').click(function(){
       $('.sound-shoot').trigger('play');
-      console.log(score);
-
       $('.score-number').html(score.increaseBy(100));
       if(score.value() === 1600) {
         $('.lost-a-life-container').addClass('js-hide');

@@ -1,23 +1,25 @@
-
+//////////////////////////////////
 //TARGET BUILD
+/////////////////////////////////
 
 /**
  * @param x initial x position
  * @param y initial y position
  * @param deltaY the amount (in pixels) by which this target will move vertically
  */
-function Target($container, x, y, deltaY) {
+ //////////////////////////////////
+ //TARGET 1
+ /////////////////////////////////
+function Target1($container, x, y, deltaY) {
   this.x = x;
   this.y = y;
   this.deltaY = deltaY;
   this.$container = $container;
   this.init();
   this.$element.offset({ top: y, left: x });
-  console.log('init');
-
 }
-
-Target.prototype.init = function () {
+///// Target1 INIT
+Target1.prototype.init = function () {
   this.$container = $('.container');
   this.$element = $('<div class="target target-flame"></div>');
   this.$element.appendTo(this.$container);
@@ -25,38 +27,33 @@ Target.prototype.init = function () {
 
   this.hide();
   this.moveDown();
-  // this.scoreAdd();
   this.explode();
-  // this.moveTo(this.x, this.y);
 };
 
-Target.prototype.hide = function () {
+///// Target1 HIDE
+Target1.prototype.hide = function () {
   if (this.$element) {
     this.$element.hide();
   }
 };
 
-Target.prototype.show = function () {
+///// Target1 SHOW
+Target1.prototype.show = function () {
   if (this.$element) {
     this.$element.show();
   }
 };
 
-
-Target.prototype.moveBy = function (byX, byY) {
-  this.x += byX;
-  this.y += byY;
-};
-
-Target.prototype.moveDown = function () {
+///// Target2 MOVEDOWN
+Target1.prototype.moveDown = function () {
   this.$targetSelector.addClass('target-moveDown');
   this.y += this.deltaY;
 
 };
 
-Target.prototype.explode = function () {
+///// Target1 EXPLODE
+Target1.prototype.explode = function () {
   this.$element.click(function(){
-    // console.log('hit');
     $(this).removeClass('target-flame');
     $(this).addClass('bg-explosion');
 
@@ -66,12 +63,6 @@ Target.prototype.explode = function () {
   });
 };
 
-// Target.prototype.scoreAdd = function(){
-//   this.$targetSelector.click(function(){
-//     console.log(score);
-//     $('.score-number').html(score.increaseBy(100));
-//   });
-// };
 
 //////////////////////////////////
 //TARGET 2
@@ -84,10 +75,8 @@ function Target2($container, x, y, deltaY) {
   this.$container = $container;
   this.init();
   this.$element.offset({ top: y, left: x });
-  console.log('target2 init');
-
 }
-
+///// Target2 INIT
 Target2.prototype.init = function () {
   this.$container = $('.container');
   this.$element = $('<div class="target2 target2-flame"></div>');
@@ -96,17 +85,16 @@ Target2.prototype.init = function () {
 
   this.hide();
   this.moveDown();
-  // this.scoreAdd();
   this.explode();
-  // this.moveTo(this.x, this.y);
 };
-
+///// Target2 HIDE
 Target2.prototype.hide = function () {
   if (this.$element) {
     this.$element.hide();
   }
 };
 
+///// Target2 SHOW
 Target2.prototype.show = function () {
   if (this.$element) {
     this.$element.show();
@@ -131,7 +119,6 @@ Target2.prototype.explode = function () {
   this.$element.click(function(){
 
     clickCount+=1;
-    console.log(clickCount);
     if(clickCount === 1){
       $(this).addClass('on-fire');
     }
